@@ -25,7 +25,7 @@ eqm_qmap_m <- function(his_mod,
                    eqm_model <- qmap::fitQmapQUANT(his_obs_m$value,
                                                    his_mod_m$value,
                                                    wet.day = wet_day,
-                                                   qstep = 0.1)
+                                                   qstep = 0.01)
                    
                    fut_mod_m_c <- qmap::doQmapQUANT(fut_mod_m$value, 
                                                     eqm_model, 

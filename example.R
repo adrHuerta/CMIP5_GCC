@@ -35,5 +35,8 @@ ts$his_c$type <- "his_c"
 
 lattice::bwplot(value ~ type | month, 
                 data = rbind(ts$obs, ts$his, ts$his_c),
-                scales = list(y = list(relation = "free")))
+                scales = list(y = list(relation = "free")),
+                cex = .75, pch = 19, 
+                par.settings = list(plot.symbol = list(cex = .5),
+                                  box.umbrella = list(lty = 5)))
 
