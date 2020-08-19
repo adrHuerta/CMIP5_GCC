@@ -1,8 +1,8 @@
 library(raster)
 library(hyfo)
 
-GCM_his <- brick("/home/adrian/Downloads/GCM_prueba.nc")
-piscop <- brick("/home/adrian/Documents/wa_budyko_datasets/netcdf/P/PISCOpd.nc")
+GCM_his <- brick("GCM_prueba.nc")
+piscop <- brick("PISCOpd.nc")
 piscop <- piscop[[1:nlayers(GCM_his)]]
 
 Date = seq(as.Date("1981-01-01"), length.out = nlayers(GCM_his), by = "day")
