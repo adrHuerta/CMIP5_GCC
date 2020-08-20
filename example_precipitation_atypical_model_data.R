@@ -3,7 +3,7 @@ rm(list = ls())
 source('./src/bc_gcc_dhi.R')
 
 # getting path of time series files example
-ts <- dir("./data", full.names = TRUE)[1:3] # first three files (precipitation)
+ts <- dir("./data", full.names = TRUE)[13:15]
 names(ts) <- sapply(strsplit(ts, "_"), function(x) strsplit(x[[3]], "[.]")[[1]][1])
 
 # importing time series as data.frame (Date, value)
@@ -18,7 +18,7 @@ ts <- lapply(ts, function(x){
 
 # bias-correcting (monthly variation) time series
 # (correcting historical model data)
-ts$his_c <- eqm_qmap_m(his_mod = ts$his,
+ts$his_c <- bc_gcc_dhi(his_mod = ts$his,
                        his_obs = ts$obs,
                        fut_mod = ts$his,
                        wet_day = TRUE)  # wet_day = FALSE for temperature data 
@@ -39,4 +39,9 @@ lattice::bwplot(value ~ type | month,
                 cex = .75, pch = 19, 
                 par.settings = list(plot.symbol = list(cex = .5),
                                   box.umbrella = list(lty = 5)))
+
+# in this time serie any procedure was done because the data does not vary, 
+# and this was tested with is_possible_to_bc()
+is_possible_to_bc(his_mod = ts$his)
+
 
