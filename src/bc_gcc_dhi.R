@@ -75,8 +75,8 @@ eqm_qmap_m <- function(his_mod,
                                                     type = "linear")
                    
                    response <- fut_mod_m
-                   response[, colnames(ts$his)[1]] = fut_mod_m[,1]
-                   response[, colnames(ts$his)[2]] = round(fut_mod_m_c, 1)
+                   response[, colnames(fut_mod_m)[1]] = fut_mod_m[,1]
+                   response[, colnames(fut_mod_m)[2]] = round(fut_mod_m_c, 1)
                    response
                  }
           )
