@@ -40,3 +40,20 @@ lattice::bwplot(value ~ type | month,
                 par.settings = list(plot.symbol = list(cex = .5),
                                   box.umbrella = list(lty = 5)))
 
+# monthly window seasonal varying
+plot(eqm_qmap_sv(his_mod = ts$his,
+                 his_obs = ts$obs,
+                 fut_mod = ts$his,
+                 wet_day = TRUE), type = "l")
+
+# monthly varying
+plot(eqm_qmap_m(his_mod = ts$his,
+                his_obs = ts$obs,
+                fut_mod = ts$his,
+                wet_day = TRUE), type = "l")
+
+# seasonal varying
+plot(eqm_qmap_s(his_mod = ts$his,
+                his_obs = ts$obs,
+                fut_mod = ts$his,
+                wet_day = TRUE), type = "l")
